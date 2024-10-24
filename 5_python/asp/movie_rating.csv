@@ -1,0 +1,11 @@
+Name,Year,Rating,Description,Genre_1,Genre_2,Genre_3,Certificate,Runtime
+Sunset Blvd.,1950,8.7,A hack screenwriter writes a screenplay for a former silent-film star who has faded into Hollywood obscurity.,Drama,Film-Noir,NaN,APPROVED,110
+12 Angry Men (1957),1957,8.9,A dissenting juror in a murder trial slowly manages to convince the others that the case is not as obviously clear as it seemed in court.,Crime,Drama,NaN,APPROVED,96
+Dr. Strangelove or: How I Learned to Stop Worrying and Love the Bomb (1964),1964,8.5,An insane general triggers a path to nuclear holocaust that a war room full of politicians and generals frantically try to stop.,Comedy,NaN,NaN,APPROVED,95
+The Godfather,1972,9.2," ""The aging patriarch of an organized crime dynasty transfers control of his clandestine empire to his reluctant son.""",Crime,Drama,NaN,R,175
+The Godfather: Part II (1974),1974,9.1,"The early life and career of Vito Corleone in 1920s New York is portrayed while his son, Michael, expands and tightens his grip on his crime syndicate stretching from Lake Tahoe, Nevada to pre-revolution 1958 Cuba.",Crime,Drama,NaN,R,202
+Sholay,1975,8.5,"After his family is murdered by a notorious and ruthless bandit, a former police officer enlists the services of two outlaws to capture him.",Action,Drama,Thriller,R,198
+The Shawshank Redemption,1994,9.3,"Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency.",Crime,Drama,NaN,R,142
+Pulp Fiction (1994),1994,8.9,"The lives of two mob hit men, a boxer, a gangster's wife, and a pair of diner bandits intertwine in four tales of violence and redemption.",Crime,Drama,NaN,R,154
+Memento (2000),2000,8.6,A man creates a strange system to help him remember things; so he can hunt for the murderer of his wife without his short-term memory loss being an obstacle.,Mystery,Thriller,NaN,R,113
+The Dark Knight (2008),2008,9,"When the menace known as the Joker wreaks havoc and chaos on the people of Gotham, the caped crusader must come to terms with one of the greatest psychological tests of his ability to fight injustice.",Action,Crime,Drama,PG_13,152

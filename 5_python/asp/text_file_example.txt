@@ -1,0 +1,4 @@
+This is an example to show how to open a file and read.
+This is the second line of the text. Continuing with second line.
+This is the third line.
+This text has to be appended at the endThis text has to be appended at the endThis text has to be appended at the endThis text has to be appended at the endThis text has to be appended at the endThis text has to be appended at the endThis text has to be appended at the endThis text has to be appended at the endThis text has to be appended at the end
