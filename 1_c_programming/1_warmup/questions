@@ -1,0 +1,15 @@
+1. Print your name and address in following format
+	Name 
+	Address 
+	City 
+2. Print your name and address with double space in each line
+3. Write a program for four function calculator using integer variables.
+4. Calculate area and perimeter of rectangle length =15 and breadth =30.
+5. Convert temp. to Fahrenheit using formula  F = C*9/5+32
+6. Calculate the total and average of marks of 3 subjects.
+7. Accept the number and calculate the years, weeks and days(375 = 1year 1 week and 3 days) 
+8. Write a program to calculate area and circumference of circle using constant pi value.
+9. Use sizeof operator to display size of different data types.
+10. Accept 3 digit no. calculate sum of all digits
+11. Swap 2 nos. with using third variable and without using third variable.
+

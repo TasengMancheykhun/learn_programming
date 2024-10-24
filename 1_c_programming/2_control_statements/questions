@@ -1,0 +1,15 @@
+1. Display minimum of 2 nos. 
+2. Accept marks of 3 subjects. Calculate total and avg. If avg>50 display Pass else display Fail.
+3. Enter the year check it is leap year or not.
+4. Find maximum of 3 nos.
+5. Accept age. If age<18 display “not eligible for voting” else display “eligible for voting” 
+6. Accept a number, check it is even or odd.
+7. If the three sides of a triangle are entered through the keyboard, write a program to check whether the triangle is isosceles, equilateral, scalene or right angled triangle.
+8. Accept marks of 3 subjects. Calculate total and avg. Display Grade
+	If avg<50  Fail
+	if avg>=50 and <60 – Grade C
+	 if avg>=60 and <70 – Grade B
+	if avg >=70 – Grade A
+9. Accept the week day number. Display weekday accordingly 1- Monday, 2- Tuesday…..
+10. Accept month number. Display month name.
+
