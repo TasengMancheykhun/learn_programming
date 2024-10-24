@@ -1,0 +1,75 @@
+==> Create a user "ditiss" and create db "cdac_ditiss_db" and grant all privs to user "ditiss" with password "s3cr3t123?"
+
+1. Create a Database "BOOKS" and use it.
+
+2. Create a table with name “AUTHORS”? with the following columns
+
+— BOOK_NAME  with string data type 
+
+— PRINTS with numerical data type 
+
+— Price with real number data type 
+
+— purchase_cost with decimal data type 
+
+— estimated_sale_price with data type float 
+
+— Publishing Year with data type int
+
+— Author Name with data type varchar
+
+
+3. Display all columns and their datatype and size in authors?
+
+4. Insert two records into AUTHORS
+
+— 1st record with values —
+
+— book_name: psychology of money
+
+— Prints: 5
+
+— price: 330
+
+— Puchase_cost: 220
+
+— estimated_sale_price: 310
+
+— Publishing Year: 2020
+
+— Author: Morgan Housel
+------------------------------------------------
+
+— Book_name: The Power of your subconscious mind 
+
+— Prints: 4
+
+— price: 200
+
+— Puchase_cost: 100
+
+— estimated_sale_price: 180
+
+— Publishing Year: 1963
+
+— Author: Joseph Murphy
+
+
+5. Add a column: Rating to the existing AUTHOR table with data type varchar and size 20
+
+6. Insert Data Into New Column Rating
+
+— Psychology of Money : (A)
+
+— The Power of your subconscious mind : (A2)
+
+7. How many characters does the  Book_name : “psychology of money” have in the AUTHOR table.
+
+8. Alter the Book_name field from CHAR to VARCHAR in AUTHOR
+
+9. Delete Psychology of Money column
+
+10. drop table & database
+
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++

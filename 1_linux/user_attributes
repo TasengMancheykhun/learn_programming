@@ -1,0 +1,48 @@
+sudo adduser taseng
+
+sudo useradd taseng
+
+sudo userdel -r taseng
+
+sudo passwd taseng
+
+sudo passwd -d taseng
+
+id taseng
+
+sudo gpasswd gtaseng
+
+sudo groupdel gtaseng
+
+chage -l taseng
+
+sudo useradd -u 2001 taseng
+
+sudo usermod -u 7001 taseng
+
+sudo groupmod -g 9191 gtaseng
+
+sudo groupmod -g 6767 gtaseng
+
+sudo usermod -c "comment" taseng
+
+sudo useradd -m -d /home/kuku taseng
+
+sudo usermod -d /home/lily -m taseng
+
+sudo useradd -s /bin/bash taseng
+
+sudo usermod -s /bin/bash taseng
+
+sudo groupadd gtaseng
+sudo useradd -g gtaseng taseng
+
+sudo useradd -G gtaseng u1
+sudo useradd -G gtaseng u2
+
+sudo usermod -G gtaseng u3
+
+sudo useradd -r xtaseng
+
+
+

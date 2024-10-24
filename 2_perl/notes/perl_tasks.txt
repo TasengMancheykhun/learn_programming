@@ -1,0 +1,277 @@
+PERL TASKS:
+```````````
+Q. Which of the following variables will evaluate to true?
+
+my $first  = undef;
+my $second = ' ';     # a single space
+my $third  = 0.0;
+my $fourth = '0.0';
+my $fifth  = 0;
+my $sixth  = 'false';
+-------------------------------------------------------------------------------------
+Answer: $second, $fourth and $sixth will all evaluate to true. The $fourth variable is a bit of a trick. Even though it looks like 0.0, because it’s a string, it evaluates as true because all non-empty strings evaluate as true. To make it evaluate as false, add zero to it:
+
+0+$fourth;
+
+That will force Perl to consider it a number.
+
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Q. Given the following array of Fahrenheit values, create a new array, @celsius, containing the Fahrenheit temperatures converted to Celsius. Remember that to convert Fahrenheit to Celsius, you must first subtract 32 and then multiply the number by 5/9.
+
+my @fahrenheit = ( 0, 32, 65, 80, 212 );
+my @celsius    = ...
+-------------------------------------------------------------------------------------
+
+
+#!/usr/bin/perl
+use strict;
+use warnings;
+
+my @fahrenheit = ( 0, 32, 65, 80, 212 );
+my @celsius    = map { ($_-32) * 5/9 } @fahrenheit;
+
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Q. Given an array called @ids, create a new array called @upper containing only the values in @ids which were all upper case to begin with.
+
+my @ids   = (AAA bbb Ccc ddD EEE);
+my @upper = ...
+-------------------------------------------------------------------------------------
+#!/usr/bin/perl
+use strict;
+use warnings;
+
+my @ids   = qw(AAA bbb Ccc ddD EEE);
+my @upper = grep { $_ eq uc($_) } @ids;
+
+
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Q. What values do $answer1, $answer2 and $answer3 contain after all of these statements have been executed?
+
+my $answer1 = 3 + 5 * 5;
+my $answer2 = 9 - 2 - 1;
+my $answer3 = 10 - $answer2++;
+-------------------------------------------------------------------------------------
+$answer1 will contain 28 because the multiplication operator has a higher precedence than addition.
+
+$answer2 will initially contain 6 because subtraction is left associative, but after the autoincrement in the third line, it will contain 7.
+
+$answer3 will contain 4 because $answer2 will be subtracted from 10 before it is incremented. If the ++ autoincrement operator was before the $answer2 (10 - ++$answer2), it would have contained 3.
+
+If the autoincrement operator confused you, that’s OK. That’s why we often recommend that those lines be rewritten as follows:
+
+my $answer2 = 9 - 2 - 1;
+my $answer3 = 10 - $answer2;
+$answer2++;
+
+By having autoincrement and autodecrement operators in their own statements, the code is often easier to understand.
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Q. What does the following line of code do? How might you improve it?
+
+print for 1..10;
+
+-------------------------------------------------------------------------------------
+
+
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Q. The following code has a syntax error. Fix it.
+
+my $temperature = 22;
+print $temperature < 15? "Too cold!\n"
+    : $temperature > 35? "Too hot!\n";
+-------------------------------------------------------------------------------------
+
+
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Q. 
+
+
+
+
+
+
+
+
+
+Q. Create an array with the values “IMA”, “IAF”, and “DRDO” (without the quotes). Write a program that will print: IMA "IAF" DRDO.
+-------------------------------------------------------------------------------
+
+#!/usr/bin/perl
+use strict;
+use warnings;
+
+my @name = ('Andrew', 'Andy', 'Kaufman');
+my ( $first, $nick, $last ) = @name;
+print $first, "\"$nick\"", $last;
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Q. Create a hash with the keys being names of fruits and the values being their normal color. Print every key/value pair as a separate line similar to bananas are yellow.
+-------------------------------------------------------------------------------------
+
+#!/usr/bin/perl
+use strict;
+use warnings;
+
+my %color_for = (
+    bananas => 'yellow',
+    apples  => 'red',
+    oranges => 'orange',
+);
+for my $fruit (keys %color_for) {
+    my $color = $color_for{$fruit};
+    print "$fruit are $color\n";
+}
+
+
+HINT: 
+my $f = keys %color_for;
+print $f;
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+Q. Create a script which run with an argument, like:
+
+# perl script.pl ARGUMENT
+
+With conditions as if no parameter pass then it should print "[ERROR] No parameter provided. Usage: perl $0 PARAMETER" otherwise print the parameter as it is (given as argument) 
+-------------------------------------------------------------------------------------
+#!/usr/bin/env perl
+
+use strict;
+use warnings;
+
+my $parameter = $ARGV[0];
+
+if ($parameter) {
+	print $parameter;
+} else {
+	print "[ERROR] No parameter provided. Usage: perl $0 PARAMETER";
+	exit 1;
+}
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+
+Q. write a short script that will print a countdown on the terminal.
+-------------------------------------------------------------------------------------
+#!/usr/bin/perl
+
+#Countdown
+
+use warnings;
+use strict;
+
+print "Countdown start: ";
+my $start = <STDIN>;
+	chomp $start;
+
+my $i = $start;
+
+while ($i > 0) {
+	do {
+		print "$i\n"; 
+		$i--;
+		sleep(2);
+	} until ($i==0)	
+};
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Q. Write a program that reads a series of words (with one word per 
+ line) until end-of-input, then prints a summary of how many times
+ each word was seen.
+
+ So, if the input words were fred, barney, fred, dino, wilma, fred
+ (all on separate lines), the output should tell us that fred was
+ seen 3 times.
+-------------------------------------------------------------------------------------
+
+
+
+
+#!/usr/bin/perl
+use warnings;
+use strict;
+
+chomp(my @input = <>);
+my %number_of_times = ();
+
+foreach (@input) {
+    if (defined $number_of_times{@input}) {
+	$number_of_times{@input}++;
+    } else {
+	push %number_of_times, $_;
+    }
+}
+
+foreach (%number_of_times) { # print the hash
+    print "$_ $number_of_times{$_}\n";
+}
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Q. In the US, Social Security numbers are a sequence of three digits, followed by a dash, followed by two digit, followed by another dash, followed by four digits. They might look like this: 123-45-6789.
+Ignoring that not all combinations of numbers are valid, write a regular expression that matches a US Social Security number.
+
+
+
+Q. Imagine we have this text:
+
+alice: 48472
+bob:34582
+# we need to fire charlie
+   charlie : 45824
+# denise is a new hire
+denise : 34553
+
+Those are employee login names and their user numbers. Write code to create a hash with employee usernames as the keys and employee numbers as the values. There should be no leading or trailing whitespace in either the keys or the values. Empty lines and lines starting with a # can be ignored.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

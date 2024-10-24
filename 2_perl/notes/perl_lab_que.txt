@@ -1,0 +1,69 @@
+1. Consider the following Perl script:
+
+my $a = 1;
+sub callee { print "$a\n"; }
+sub outer { my $a = 2; callee(); }
+outer();
+
+What does it print? How does the print statement look up variable $a? 
+
+
+
+
+2. Write a regular expression that captures the PID and CMD from a line of output of the ps command on Linux. For example, consider the following output:
+
+bash:~> ps
+  PID TTY          TIME CMD
+ 4702 pts/2    00:00:00 bash
+ 4739 pts/2    00:00:00 ps
+
+The PID of bash is 4702, and the PID of ps is 4739. 
+
+
+3. Develop a regular expression to match string, int, floating point numbers.
+
+
+4. Make a program which read in a file, get rid of gap characters ('-'), and print out the cleaned file. 
+
+files content start:
+1 - I or V
+2 - any
+3 - D
+4 - S
+5 - G, A, or S
+6 - G, A, S, or C
+7 - G, A, S, or T
+8 - G or A
+9 - T 
+files content end:
+
+
+#!/usr/bin/perl -w
+use strict;
+
+open('DATA', '<file.txt') or die "$!";
+open('DATA1', '>>file.txt') or die "$!";
+
+while (<DATA>){
+	if ($_ =~ s/\s-\s//){
+		print DATA1 "$_\n";
+	}
+}
+close(DATA);
+close(DATA1);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,18 @@
+Linux permission to directory=777, file=666
+
+umask octal value = 22
+
+Default permissions to directory=755, file=644
+
+chmod 
+
+chown
+
+chgrp 
+
+
+setfacl -m u:taseng:rw- filetaseng
+
+setfacl -m g:gtaseng:rwx filetaseng
+
+getfacl filetaseng

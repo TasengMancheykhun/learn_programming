@@ -1,0 +1,22 @@
+sudo service apache2 status
+sudo service apache2 stop
+
+
+location: /opt/lampp/
+
+sudo chmod +x manager-linux-x64.run
+sudo ./manager-linux-x64.run
+
+
+location of html & php files
+
+/opt/lampp/htdocs/demotaseng/
+
+
+## Give permission to demotaseng folder
+
+sudo chmod -R 777 demotaseng
+
+
+Server:
+http://localhost/demotaseng/

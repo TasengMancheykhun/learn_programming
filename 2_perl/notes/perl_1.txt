@@ -1,0 +1,2323 @@
+Intro to PERL:
+``````````````
+=> Its very powerful & adaptable language. Developed by Larry Wall for NASA in 1987.
+=> PERL is "Practical Extraction and Report Language"
+=> Perl is case-sensitive
+=> In PERL every line ends with ; (semicolon).
+=> Perl used in many fields like 
+- application development, 
+- test automation, 
+- website development, 
+- XML manipulation, 
+- configuration management, 
+- CGI programming [common gateway interface], 
+- Bioinformatics, 
+- system administration, 
+- game development, 
+- databases, 
+- GUI development, 
+- desktop apps and many more.
+
+
+
+
+=> PERL uses the Perl DBI its standard database interface. It fully supports third-party databases integration of Oracle, Postgres, MySQL and others.
+
+=> Perl is compatible with HTML, XML, JSON and other markup languages.
+
+=> Perl supports procedural programming & OOPS.
+
+
+
+
+
+
+=> There is no requirement of specifying data type in PERL.
+
+=> It has three type - Scalar, Array, Hashes.
+
+
+
+
+
+
+
+
+
+
+Installation:
+``````````````
+Manual:
+```````
+Download: https://www.perl.org/get.html
+
+Automated:
+``````````
+# apt search perl | grep "^perl"
+# apt info perl
+# apt install perl -y
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+PERL in command mode:
+``````````````````````[.pl]
+=> The following arguments can be used while executing a Perl program.
+
+# perl -v [ To check version ]
+
+# perl script.pl
+OR
+#./script.pl [ chmod u+x script.pl ]
+
+
+
+
+
+# perl -<argument> script.pl
+
+w – argument shows a warning.
+d – used for debugging.
+c – compiles only do not run.
+e – execute [ Basic perl functions ].
+
+# perl -e 'print "Ulalalalala\n"'
+
+[ -e : execute ]
+
+# perl -E 'say "Ulalalalala"'
+
+[ -E : Enable Adv features ]
+[ say : Auto add newline \n ]
+
+
+
+
+
+
+Interective console:
+````````````````````
+# perl
+print "LOL\n";
+^D
+LOL
+++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+First line of PERL:
+````````````````````````````[ .pl]
+SHEBANG : #!
+ENV : /usr/bin/perl
+
+# which perl
+/usr/bin/perl
+
+# vim first.pl
+
+#!/usr/bin/perl
+print "Hello CDAC\n";
+
+# perl first.pl
+OR
+# chmod u+x first.pl
+# ./first.pl
+
+Compile Only:
+`````````````
+# perl -c script.pl
+script.pl syntax OK
+
+Debug:
+``````
+# perl -d script.pl
+main::(script.pl:2):	print "Ulalalalalala\n";
+DB<1> n [ To execute & go to next line of code ]
+DB<1> h [ help ]
+DB<1> q [ quit ]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
++++++++++++++++++++++++++++++++++++++++++++++++++
+Variables:
+``````````
+=> Variables are case-sensitive in PERL
+=> There are three types of variables in PERL:
+
+- Scalar
+- Array
+- Hashes
+
+Scalar:
+```````
+=> Perl automatically identify whether is it int or string or float or a char or a paragraph or an entire web page, and both are scalar values for perl.
+
+=> Scalar starts with $
+
+=> To declare multiple variables at once : $var1, $var2, $var3
+
+$a = 2
+$a, $b = 1
+($a, $b) = (1, 2)
+
+
+=> If you want to return string without interpolation, you need to use '' [Single Quotes]
+eg: print 'Data $100';
+NOTE: it will print Data $100 as it is.
+
+
+
+
+
+
+
+
+
+=> Perl has a special "undefined" value, written as "undef"
+=> Declared but not assigned variables have the value undef
+=> Default scalar have initial value as 0
+
+- 0 [ZERO] is a number itself is FALSE
+- An empty string '' (with single quotes) and the string '0' are false
+- undef itself is false.
+- ANYTHING ELSE is TRUE.
+
+[+] https://pastebin.com/raw/diB0rgwF
+
+#!/usr/bin/perl
+$test = undef; # now $test var is undefined
+$a = '';
+$b = '0';
+$c;
+print "$test\n";
+print "$a\n";
+print "$b\n";
+print "$c\n";
+
+
+
+
+
+
+=> Float point values include the spacial values "inf" [infinity] and "NaN" [not a Number]. [Only as a single variable]***
+
+
+
+
+
+
+
+=> Every scalar must begin with $, like:
+````````````````````````````````````````
+$variable1 = "natasha";  	# String
+$variable2 = 99;		# int
+$variable3 = 1.19;		# Float
+ 
+----------------------
+# vim script.pl
+
+#!/usr/bin/perl
+$variable1 = "natasha";  	# String
+$variable2 = 99;		# int
+$variable3 = 1.19;		# Float
+
+print "OUT1 = $variable1\n";
+print "OUT2 = $variable2\n";
+print "OUT3 = $variable3\n";
+
+# perl script.pl
+
+OUT1 = natasha
+OUT2 = 99
+OUT3 = 1.19
++++++++++++++++++++++++++++++++++++++++
+Arithmetic ops:
+````````````````
+$a = 2;
+$b = 3;
+print $a + $b;
+print $a - $b;
+print $a / $b;
+print $a * $b;
+print $a ** $b;
+print $a % $b;
+
+OR
+
+#!/usr/bin/perl
+$a = 2;
+$b = 3;
+print ($a + $b, "\n");
+print ($a - $b, "\n");
+print ($a / $b, "\n");
+print ($a * $b, "\n");
+print ($a % $b, "\n");
+
+
+
+
+
+
++++++++++++++++++++++++++++++++++++++++
+OS Command/System Call:
+```````````````````````
+#!/usr/bin/perl
+$a = `pwd`;
+print $a;
+-----------------
+OS Command output with exit status:
+```````````````````````````````````
+#!/usr/bin/perl
+system("pwd");
+
+OR
+
+#!/usr/bin/perl
+$a = system("pwd");
+print $a;
+-------------------------------------
+
+
+
+User input in Perl:
+```````````````````
+- Perl use <> operator
+- this operator reads a line along with the newline (\n) char.
+
+#!/usr/bin/perl
+print "Enter target: ";
+$a = <>;
+print "Target is : $a"
+
+
+# perl script.pl
+Enter target: NASA
+NASA\n
+
+NOTE: One more thing you should notice here is that <> also returned a newline character corresponding to the ENTER we pressed after giving input.
+
+
+
+Perl chomp():
+`````````````
+- We can use 'chomp' function. It just removes the newline character from the end.
+
+#!/usr/bin/perl
+print "Enter target: ";
+chomp($a = <>);
+print "Target is $a, Lets hack now."
+
+# perl script.pl
+Enter target: NASA
+Target is NASA, Lets hack now.
+
+
+
+Perl chop():
+````````````
+The Perl chop() function removes last character from a string regardless of what that character is.
+
+#!/usr/bin/perl
+$a = "abc";
+chop($a);
+print "$a\n"
+
+# perl script.pl
+ab
+
+e.g:
+````
+#!/usr/bin/perl
+print "Enter a value: ";
+chomp($a = <>);
+chop($a);
+print("Out: ", $a)
+
+
+
+
+# perl 1.pl
+
+Enter command: pwd
+OUTPUT: /root
+
+#!/usr/bin/perl
+print "Enter commnad: ";
+$a = <>;														
+chomp($a)
+print ("Output: ", `$a`);
+
+
+
+
+
+
+
+________________________________________________________________
+Some adv features in PERL:
+`````````````````````````` 
+=> use of Pragmas:
+```````````````````
+* Its highly recommanded to use pragmas in top of the program. This force you to declare all your variables and causes PERL to complain/warning when it sees a variable which is not declared or misspelled.
+
+* It also checks the variable scopes in different blocks of a long code.
+
+use strict;
+use warnings;  OR #!/usr/bin/perl -w
+ 
+
+EG:
+```
+#!/usr/bin/perl
+print "$test\n";
+
+# perl script.pl
+
+----------------------
+WITH WARNING PRAGMA:
+----------------------
+
+#!/usr/bin/perl
+use warnings;
+print "$test\n";
+
+# perl script.pl
+Name "main::test" used only once: possible typo at script.pl line 3.
+Use of uninitialized value $test in concatenation (.) or string at script.pl line 3.
+
+----------------------
+WITH STRICT PRAGMA:
+----------------------
+
+#!/usr/bin/perl
+use strict;
+print "$test\n";
+
+# perl script.pl
+Global symbol "$test" requires explicit package name (did you forget to declare "my $test"?) at script.pl line 4.
+Execution of script.pl aborted due to compilation errors.
+
+-------------------------------
+BOTH STRICT & WARNINGS PRAGAMA:
+-------------------------------
+#!/usr/bin/perl
+use strict;
+use warnings;
+print "$test\n";
+
+# perl script.pl
+Global symbol "$test" requires explicit package name (did you forget to declare "my $test"?) at script.pl line 4.
+Execution of script.pl aborted due to compilation errors.
+
+_______________________________________
+my - Local variable
+````````````````````
+- Suppose we have a variable having some value but we want to use a different value of the same variable only in one block of code.
+
+#!/usr/bin/perl
+
+$a = 5;
+print "Value: $a\n";
+{
+ $a = 6;
+  print "Value of a is $a\n";
+}
+print "Value of a outside the block is $a\n";
+
+
+
+# perl script.pl
+Value: 5
+Value of a is 6
+Value of a outside the block is 6
+-------------------------
+#!/usr/bin/perl
+use strict;
+use warnings;
+
+$a = 5;
+print "Value: $a\n";
+{
+ my $a = 6;
+  print "Value of a is $a\n";
+}
+print "Value of a outside the block is $a\n";
+
+
+
+
+
+# perl script.pl
+Value: 5
+Value of a is 6
+Value of a outside the block is 5
+-----------------------------------------------
+#!/usr/bin/perl
+use strict;
+use warnings;
+
+my $a = 5;
+print "Value: $a\n";
+{
+ my $a = 6;
+  print "Value of a is $a\n";
+}
+print "Value of a outside the block is $a\n";
+
+_______________________________________
+
+
+
+
+Array:
+``````
+=> In array we will access the values using the index.
+=> Array variables must begin with @ like
+
+@array1 = ("natasha", "dheeraj", 1.222, 22);
+@array2 = (10,20,30);
+
+$array1[0] - To print one element
+@array1    - To print complete array
+$#array1   - To count total elements as per index in array	
+
+To print :
+```````````
+#!/usr/bin/perl
+use strict;
+use warnings;
+
+my @array1 = ("natasha", "dheeraj", 1.222, 22);
+my @array2 = (10,20,30);
+
+print "OUT1: $array1[0]\n";
+print "OUT2: $array2[0]\n";
+print "OUT2: $#array2\n";
+print "OUT2: @array2\n";
+
+# perl script.pl
+ 
+OUT1: natasha
+OUT2: 10
+____________________________________________________________
+Multidimentional Array:
+`````````````````````````
+#!/usr/bin/perl -w
+use strict;
+
+my @array = (
+        ["one","ONE","One","OnE"],              #<= This is array[0]
+        ["two","TWO","Two","TwO","twO"],                #<= This is array[1]
+        ["three","THREE","Three","ThreE","threE","ThrEe"]       #<= This is array[2]
+);
+
+print "\$array[0][0] = $array[0][0]\n";  ## Out: one
+print "\$array[0][1] = $array[0][1]\n";  ## Out: ONE
+print "\$array[0][2] = $array[0][2]\n";  ## Out: One
+
+print "\$array[1][0] = $array[1][0]\n";  ## Out: two
+print "\$array[1][1] = $array[1][1]\n";  ## Out: TWO
+print "\$array[1][2] = $array[1][2]\n";  ## Out: Two
+
+print "\$array[2][0] = $array[2][0]\n";  ## Out: three
+print "\$array[2][1] = $array[2][1]\n";  ## Out: THREE
+print "\$array[2][2] = $array[2][2]\n";  ## Out: Three
+print "Count total array as elements of \$#array = $#array\n";
+print "Count total elements of \$#array[0] = $#{$array[0]}\n";
+print "Count total elements of \$#array[1] = $#{$array[1]}\n";
+print "Count total elements of \$#array[2] = $#{$array[2]}\n";
+____________________________________________________________
+TO PRINT ENTIRE MULTIDIMENTIONAL ARRAY: 
+```````````````````````````````````````
+You can use Data::Dump: [package]
+``````````````````````````````````
+#!/usr/bin/perl -w
+use strict;
+use Data::Dump ("dump");
+my @array = (
+        ["one","ONE","One","OnE"],              #<= This is array[0]
+        ["two","TWO","Two","TwO","twO"],                #<= This is array[1]
+        ["three","THREE","Three","ThreE","threE","ThrEe"]       #<= This is array[2]
+);
+
+dump(@array);
+dump(@array[0]);
+dump(@array[1]);
+
+____________________________________________________________
+
+
+Q. GO TO QUE
+
+
+
+
+
+Hashes:
+```````
+=> Hashes are key:value pair
+=> In hash we will access the values using the key.
+=> Hash variable must begin with % like
+
+my %hash1 = ('key1', kids, "lol", "pop");
+OR
+my %hash1 = (key1 => kids, lol => psh);
+OR
+my %hash1 = (
+	key1 => value1,
+	key2 => value2
+);
+
+
+
+
+Print them:
+```````````
+
+# vim script.pl
+
+#!/usr/bin/perl -w
+use strict;
+
+my %hash1 = (key1 => "kids", lol => "psh");
+print "$hash1{'key1'}\n";
+print "$hash1{'lol'}\n";
+print %hash1;
+print keys %hash1;
+print values %hash1;
+
+# perl script.pl
+kids
+psh
+
+
+With Pragmas:
+``````````````
+#!/usr/bin/perl -w
+use strict;
+
+my %hash1 = (
+	'key1' => 'kids', 
+	'lol' => 'psh'
+);
+print keys %hash1;
+print values %hash1;
+print %hash1;
+print "$hash1{'key1'}\n";
+print "$hash1{'lol'}\n";
+
+
+# perl script.pl
+kids
+psh
+
+Q. GO TO QUE
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+String Ops in PERL:
+```````````````````
+=> You can concatenate, increment, decrement, repeat etc to the strings.
+
+my $string1 = "Dheeraj";
+my $string2 = "Natasha";
+
+Concatenate:
+`````````````
+print "$string1" . "$string2\n";
+-------------OR------------------
+my $new = $string1 . $string2;
+print "$new\n";
+
+
+Multiply String:
+````````````````
+#!/usr/bin/perl -w
+use strict;
+
+my $string1 = "xyz";
+print ($string1 * 5);
+
+# perl script.pl
+0
+=> Result is ZERO because multiply operator treats string as 0 by default after parsing. You need int to multiply.
+
+
+=> Now suppose we have:
+`````````````````````````
+#!/usr/bin/perl -w
+use strict;
+
+my $string1 = "12xy32";
+print ($string1 * 2);
+
+# perl script.pl
+24
+
+=> Result 24 because "12" is int but after that is see "xy" (a string value) so it will not parse further.
+
+
+
+With Pragmas:
+``````````````
+
+#!/usr/bin/perl
+use strict;
+use warnings;
+
+my $string1 = "xyz";
+print ($string1 * 5);
+
+# perl script.pl
+Argument "xyz" isn't numeric in multiplication (*) at script.pl line 6.
+
+
+
+Repeat Ops:
+```````````
+#!/usr/bin/perl -w
+use strict;
+
+my $string1 = "ab";
+print "$string1\n" x 2;
+
+# perl script.pl
+ab
+ab
+
+
+
+=-=-=-=-=-=-=-=-=-=-=-=-=
+#!/usr/bin/perl -w
+use strict;
+my ($a, $b, $c) = (1) x 3;
+print $a . $b . $c
+
+
+
+
+Increament Ops:
+````````````````
+#!/usr/bin/perl -w
+use strict;
+
+my $string1 = "ab";
+$string1++;
+print "$string1\n";
+
+
+
+
+
+
+=> Last char increamented by one.
+
+# perl script.pl
+ac
+-----------
+#!/usr/bin/perl
+use strict;
+use warnings;
+
+my $string1 = "az";
+$string1++;
+print "$string1\n";
+
+# perl 1.pl
+ba
+------------------------------
+
+Reverse:
+````````
+=> reverse() function in Perl when used in a list context
+=> For string you need to provide "scalar"
+
+#!/usr/bin/perl
+use strict;
+use warnings;
+my $string1 = "ab";
+my @arr1 = (10, 20 ,30);
+
+print reverse(@arr1);
+print scalar reverse($string1);
+
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+NOTE: All the perl's data types (scalar, array & hash) can provide a list, which is simply as ordered/unordered set of scalars.
+
+
+
+
+
+
+
+
+
+
+
+
+eg
+```
+my $string = "LOL";
+my @array = (1,2,3);
+my %hash = ('key1' => 'value1', 'key2' => 'value2');
+
+
+
+
+
+
+
+
+
+
+
+LISTs/Arrays in PERL:
+``````````````
+=> Lists are collection of scalars
+
+Declare a list/array:
+``````````````````````
+my @list = (a,b,c,d); 
+
+Accessing a list element:
+``````````````````````````
+my $element = $list[2];
+
+Accessing last element:
+```````````````````````
+my $element = $list[-1];
+
+
+
+Slicing:
+````````
+You can copy the elements from one list/array to other list/array:
+
+#!/usr/bin/perl -w
+use strict;
+
+my @array1 = ("a","b","c","d");
+my @nw = @array1[1,3];
+
+print "$nw[0]\n";
+print "$nw[1]\n";
+
+# perl script.pl
+
+
+
+
+
+Range:
+``````
+#!/usr/bin/perl
+use strict;
+my @list1 = (5, 10..15, 20);
+print @list1;
+print "@list1";
+print('@list1', "\n");
+
+OR
+
+print(5, 10..15, 20);
+--------------------
+NOTE: print() works different with ""
+`````
+print(@list1)
+print("@list1")
+
+
+
+
+
+UC & LC & LENGTH:
+``````````````````
+#!/usr/bin/perl -w
+use strict;
+
+my $a = "Natasha";
+print lc "$a\n";
+print uc "$a\n";
+print length $a;
+
+# perl script.pl
+natasha
+NATASHA
+7
+
+
+
+
+INDEX:
+``````
+=> This function will get two strings and return the location of the second string within the first string.
+
+#!/usr/bin/perl -w
+use strict;
+
+my $a = "This is sparta";
+
+print index $a, "s";
+
+-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-
+
+
+SUBSTR:
+```````
+=> It is basically the opposite of index(). While index() will tell you where is a given string, substr will give you the substring at a given locations.
+
+=> This fuction required 4 parameters: 
+	+ The first one is the string
+	+ The second is a 0-based location
+	+ the third is the length of the substring
+	+ replace [ if required ]
+
+
+
+
+# vim script.pl 
+
+#!/usr/bin/perl -w
+use strict;
+
+my $a = "This is sparta";
+print substr $a, 2, 2;
+
+# perl script.pl
+is
+
+
+
+
+++++++++++++++++++++++++++++++++++++++
+=> Count 2 from the left, 7 from the right, return what is between.
+``````````````````````````````````````````````
+# vim script.pl 
+
+#!/usr/bin/perl -w
+use strict;
+
+my $a = "This is sparta";
+print substr $a, 2, -7;
+
+# perl script.pl
+
+
+ 
+++++++++++++++++++++++++++++++++++++++++++++++++
+=> You can also leave out the 3rd (length) parameter which will mean: return all the characters
+`````````````````````````````````````````````````````````
+
+
+
+
+
+
+
+
+
+
+
+# vim script.pl 
+
+#!/usr/bin/perl
+use strict;
+use warnings;
+my $a = "This is sparta";
+print substr $a, 1;
+
+# perl script.pl
+his is sparta
+++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+=> We can also use a negative number in the offset, which will mean: count 2 from the right
+
+
+
+
+
+
+
+
+
+
+
+
+
+# vim script.pl 
+
+#!/usr/bin/perl -w
+use strict;
+
+my $a = "This is sparta";
+print substr $a, -6;
+
+# perl script.pl
+sparta 
+
+
+
+
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Replacing part of a string
+```````````````````````````
+#!/usr/bin/perl
+use strict;
+use warnings;
+
+my $a = "This is sparta";
+
+substr $a, -6, 6, "BABA";
+print "$a\n"
+
+
+
+_____________________________________________________________
+
+SWAP Variables:
+```````````````
+
+
+
+
+
+
+
+
+
+#!/usr/bin/perl -w
+use strict;
+
+my $a = "a";
+my $b = "b";
+($a, $b) = ($b, $a);
+print "\$a = $a\n";
+print "\$b = $b\n";
+
+# perl script.pl
+$a = b
+$b = a
+__________________________________________________________
+
+Positinal Parameters OR Command line Arguments:
+````````````````````````````````````````````````
+- Unix/Linux Shell programming you will recognize $0 is being the name of the script.
+- @ARGV is just a regular array in Perl, so index starts with $0
+
+#!/usr/bin/perl -w
+use strict;
+
+print "@ARGV\n";
+my ($a, $b) = @ARGV;
+my $name   = $ARGV[0];
+my $number = $ARGV[1];
+print "\$name = $name";
+print "\$number = $number";
+
+# perl script.pl arg1 arg2
+		  $0   $1
+
+
+
+
+_____________________________OR__________________________
+#!/usr/bin/perl -w
+use strict;
+
+my ($name, $number) = @ARGV;
+print "\$name = $name\n";
+print "\$number = $number\n";
+
+# perl script.pl pop1 pop2
+
+
+
+
+
+
+______________________________________________________________
+CONTROL STRUCTURE:
+``````````````````
+Operators:
+```````````
+1) Relational Operator:
+```````````````````````
+Numeric comparisons: ==, !=, <, <=, >, >=
+String Comparisons: eq, ne, lt, le, gt, ge
+RegEx Match/not-match: =~, !~
+
+2) Logical Operators:
+``````````````````````
+||, &&, !
+or, and, not, defined, not defined
+
+3) String Operator:
+```````````````````
+. (dot) is the string concatenation operator
+x is repetition operator
+ 
+4) File I/O Operators:
+``````````````````````
+<			: Read Operator
+>			: write Operator
+>>			: Append Operator
+
+5) File Test Conditions:
+````````````````````````
+-r	: File or Dir is readable
+-w	: File or Dir is writable
+-x	: File or Dir is executable
+-o	: File or Dir is owned by user
+-e	: File or Dir exists
+-z	: File exists and has zero size
+-s	: File exists and has non-zero size
+-f	: File
+-d	: Dir
+-l	: Symbolic Link [shortcut in Linux]
+-T	: ASCII Text file
+-B	: File is binary 
+
+
+if...elsif...else:
+``````````````````
+if (condition){
+  statement
+  statement
+  ...
+} elsif (condition){
+  statement
+  statement
+  ...
+} else{
+  statement
+  statement
+  ...
+}
+
+
+# vim script.pl 
+
+#!/usr/bin/perl -w
+use strict;
+
+print "Enter : ";
+chomp(my $a = <>);
+
+if ($a == "1"){
+	print "One\n";
+} elsif ($a == "2"){
+	print "Two\n";
+} else {
+	print "None\n";
+}
+
+
+
+----------------
+# vim script.pl
+
+#!/usr/bin/perl -w
+use strict;
+my $a = $ARGV[0];
+if ($a == "1" || $a <= "5" ){
+        print "First statement\n";
+} elsif ($a == "10"){
+        print "Second Statement\n";
+} else {
+        print "None\n";
+}
+
+# perl script.pl 1
+First statement
+
+# perl script.pl 10
+Second Statement
+
+
+Why?????????
+````````````
+# perl script.pl
+Enter : ss
+Argument "ss" isn't numeric in numeric eq (==) at 1.pl line 8, <> line 1.
+First statement
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+"defined" or "not defined" in if control structure:
+```````````````````````````````````````````````````
+#!/usr/bin/perl -w
+use strict;
+
+my ($a, $b) = @ARGV;
+
+if (defined $a && defined $b){
+	print "Cool\n";
+} elsif (not defined $a && not defined $b){
+	print "Define something\n"
+} else {
+	print "Define something\n"
+}
+-------------------------------------
++++++++++++++++++++++++++++++++++++++
+with Array:
+```````````
+if (@names) {
+    # do something
+}
+
+With HASH
+`````````
+if (%names) {
+    # do something
+}
+-------------------------------------
+
+
+
+
+Q. Create a script to check that command/utility/tool exists or not.
+RUN : 
+# perl script.pl -cmd pwd
+Command exists.
+
+# perl script.pl -cmd pwdss
+Command not found.
+
+# perl script.pl 
+Error: arg required
+exit 127
+
+--------------------------------------
+
+
+
+
+
+Q. Create a script which run with an argument, like:
+
+# perl script.pl ARGUMENT
+
+With conditions as if no parameter pass then it should print "[ERROR] No parameter provided. Usage: perl $0 PARAMETER" otherwise print the parameter as it is (given as argument)
+
+
+
+
+#!/usr/bin/perl -w
+
+system($ARGV[0]);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
++++++++++++++++++++++++++++++++++++++
+SPLIT:
+``````
+=> split REGEX, STRING will split the STRING at every match of the REGEX.
+
+eg:
+split /WORD/, $str;
+
+=> split REGEX, STRING, LIMIT where LIMIT is a positive number. This will split the STRING at every match of the REGEX, but will stop after it found LIMIT matches.
+
+
+#!/usr/bin/perl -w
+use strict;
+
+my @a = `id root`;
+
+my ($d, $e, $f) = split / /, "@a";
+print "$d\n";
+print "$e\n";
+print "$f\n";
+--------
+#!/usr/bin/perl -w
+use strict;
+my $a = `head -1 /etc/passwd`;
+my @out = split /:/, $a;
+print "$out[0],$out[5],$out[6]"
+
+
+
+
+
+
+
+
+
+
+LOOPs:
+```````
+
+For Loop:
+``````````
+for (condition){
+	statement
+}
+--------------
+#!/usr/bin/perl -w
+use strict;
+
+for (1..10){
+ print "Ulalala\n"
+}
+----------
+#!/usr/bin/perl -w
+use strict;
+
+my $i;
+for ($i=1; $i<=50; $i++){
+        print "$i\n";
+	sleep(1);
+}
+
+# perl script.pl
+------------------------------------
+#!/usr/bin/perl -w
+use strict;
+my $i;
+for ($i=$ARGV[0]; $i>=1;$i--){
+        print "$i\n";
+        sleep(1)
+}
+-------------------------------
+#!/usr/bin/perl -w
+use strict;
+
+my $i;
+for ($i=$#ARGV; $i>=0; $i--){
+        print "$ARGV[$i]\n";
+        sleep(1);
+}
+-------------------------------
+For LOOP with ARRAY
+````````````````````
+
+#!/usr/bin/perl -w
+use strict;
+
+my @arr1 = ("one", "two", "three");
+for my $i (@arr1){
+        print "$i\n";
+}
+
+# perl script.pl
+
+The for loop is one builtin which assigns to the $_ by default. If you don’t specify a variable name, $_ is assumed:
+
+#!/usr/bin/perl -w
+use strict;
+
+my @arr1 = ("one", "two", "three");
+for (@arr1){
+        print "$_\n";
+}
+
+
+
+
+
+
+
+
+---------------------------------------------
+#!/usr/bin/perl -w
+use strict;
+
+@arr1 = (1..10);
+for (my $i=0; $i<=$#arr1; $i++){
+        print "$arr1[$i]\n";
+}
+
+# perl script.pl
+---------------------------------------------
+
+
+
+---------------------------------------------
+exit with exit status
+``````````````````````````String Comparison
+#!/usr/bin/perl
+use strict;
+use warnings;
+
+print "Love is part of life not life! Agree? (y/n): ";
+chomp(my $a = <>);
+if ($a eq "y"){
+	print "Just kidding bruhhhh\n";
+}elsif($a eq "n"){
+	print "Kill yourself\n";
+}else{
+	exit;
+}
+
+With exit code/status:
+``````````````````````
+#!/usr/bin/perl
+use strict;
+use warnings;
+
+print "Love is part of life not life! Agree? (y/n): ";
+my $a = <>;
+chomp($a);
+if ($a eq "y"){
+	print "Just kidding bruhhhh\n";
+}elsif($a eq "n"){
+	print "Kill yourself\n";
+}else{
+	exit 127;
+}
+----------------------------------------
+
+
+
+
+
+
+
+
+
+
++++++++++++++++++++++++++++++++++++++++
+while loop:
+```````````
+while (condition is true){
+	statement
+}
++++++++
+
+
+# vim script.pl
+
+#!/usr/bin/perl -w
+use strict;
+my $a = "true";
+while ($a)  ## Loop goes into the infinite condition.
+{
+	print "Using true\n";
+}
+
++++++++
+
+Diamond operator (<>).
+````````````````````````
+#!/usr/bin/perl
+
+while(<>) {
+  ...
+}
+
+++++++++++++++++++++++++++++++++++++
+#!/usr/bin/perl
+
+while(<>) {
+  print $_;
+}
+
+
+
+
+
+
+
+-------------------------------------------------------------
+RegEx:
+```````
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Operators:
+``````````
+=~ 		: 		Match
+!~		:		Not Match
+
+
+$string =~ //;
+$string =~ m/WORD/;			[m : match]
+$string =~ s/search/replace/;		[s : substitute]
+
+
+
+
+
+
+Modifiers:
+```````````
+
+$string =~ //m;			[m : treat as multiple line]
+$string =~ //s;			[s : treat as single line]
+$string =~ //i;			[i : case insensitive]
+$string =~ //x;			[x : Allow whitespace]
+$string =~ //g;			[g : match globally]
+$string =~ //e;			[e : execute code]
+
+
+
+
+
+
+\ 		:	escape next metachar
+. 		:	match to any char(except \n)
++ 		:	match to one or more chars
+* 		:	match to zero or more chars
+? 		:	match to one or zero chars
+^ 		:	match the beginning of line
+$ 		:	match end of line
+| 		:	Alternation (or)
+()		:	Grouping
+[]		:	Bracketed char class [0-9a-zA-Z]{2}
+{n}		:	Match exactly n times
+{n,}		:	Match at least n times
+{n,m}		: Match at least n but not more than m times
+
+
+
+
+
+\w	:	Match to word char
+\W	:	Match to NON-word chars
+\d	:	Match to digits
+\D	:	Match to NON-digits
+\s	:	Match to whitespace
+\S	:	Match to NON-whitespace
+\b	:	Match to word boundary
+\t	:	tab
+\n	:	newline
+\r	:	return
+\e	:	escape
+-----------------------------------
+
+
+
+
+Match a word/string:
+````````````````````
+#!/usr/bin/perl -w
+use strict;
+
+my $d = `curl -ks "https://cdac.in"`;
+#print "$d";
+if ($d =~ m/cdac/){
+    print "Match\n";
+} else {
+    print "Not match\n";
+}
+
+
+
+
+Match a whitespace char:
+````````````````````````
+#!/usr/bin/perl -w
+use strict;
+my $str = "This is sparta";
+if ($str =~ m/\s/){
+	print "Match\n";
+}
+
+
+
+
+
+Match & Replace:
+`````````````````
+string/word
+```````````
+#!/usr/bin/perl -w
+use strict;
+my $str = "This is sparta";
+if ($str =~ s/sparta/CDAC/){
+    print "Match: $str\n";
+}
+
+
+
+
+
+
+Remove whitespace
+``````````````````
+#!/usr/bin/perl
+$str = "This is sparta";
+if ($str =~ s/\s/_/){
+    print "Match: $str\n";
+}
+
+# perl script.pl
+This_is sparta
+
+
+Remove whitespace [Globally]
+```````````````````````````````````
+#!/usr/bin/perl -w
+use strict;
+my $str = "This is sparta";
+if ($str =~ s/\s/_/g){
+    print "Match: $str\n";
+}
+
+# perl script.pl
+This_is_sparta
+
+
+
+
+Case insensitive search:
+`````````````````````````
+#!/usr/bin/perl -w	
+use strict;
+
+my $d = `curl -ks "https://cdac.in"`;
+#print "$d";
+for ($d =~ m/cdac/gi){
+    print "Match: $_\n";
+}
+
+
+
+
+
+Group in Match :
+`````````````````
+#!/usr/bin/perl
+use strict;
+use warnings;
+my $d = `ip a`;
+for ($d =~ m/([0-9]{1,3}\.\d{0,3}\.\d{0,3}\.\d{1,3})/g){
+    if ($_){
+        print "Match: $_\n";
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Group in substitute :
+``````````````````````
+=> Use parentheses to store matches
+=> Matchs saved as $1,$2,$3 etc
+
+#!/usr/bin/perl -w
+use strict; 
+my $d = "this is sparta";
+for ($d =~ s/(\w+)/uc $1/eg){
+       if ($_){
+        print "Match: $_\n$d\n";
+    }
+ }
+
+😀# perl script.pl
+Match: 3
+THIS IS SPARTA
+
+Another example:
+````````````````
+#!/usr/bin/perl
+use strict;
+use warnings;
+my $d = "this is sparta";
+for ($d =~ s/(\w)(\w+)/uc($1).$2/eg){
+       if ($_){
+        print "Match: $_\n$d\n";
+    }
+}
+
+😀# perl 1.pl
+Match: 3
+This Is Sparta
+
+==============================================
+File Handling
+`````````````
+=> To use a file, we need to attach a filehandler to it.
+
+[+] filehandle allows us to read from and write to files.
+
+=> In Perl, it will be a variable, which we set up using the function called "open()"
+
+statement with three parameters:
+`````````````````````````````````
+
+o The filehandle, such as DATA
+o The mode: 
+
+< or r 		Read Only Access			open(DATA, "<file.txt");
+> or w 		Creates, Writes, and Truncates		open(DATA, ">file.txt");
+>> or a 	Writes, Appends, and Creates		open(DATA, ">>file.txt");
++< or r+ 	Reads and Writes			open(DATA, "+<file.txt");
++> or w+ 	Reads, Writes, Creates, and Truncates	open(DATA, "+>file.txt");
++>> or a+ 	Reads, Writes, Appends, and Creates	open(DATA, "+>>file.txt");
+
+
+o The file path: either relative (to cwd) or absolute		
+
+example:
+````````
+open ( DATA , '<test.txt' );
+
+=> If we open it, we need to close it after we are done:
+
+close(DATA);
+
+
+
+
+
+
+
+
+
+
+---------- 
+STDIN: read the file
+```````````````````````
+#!/usr/bin/perl 
+use strict;
+
+open(DATA, "<secret");
+chomp(my $lines = <DATA>);    #it will store one line from file
+print "Out: $lines\n";
+close(DATA)
+
+
+
+
+
+
+
+
+
+
+------------------------------------------------------
+IOError: Input/Output Error
+-----------
+=> When File Handles Fail...
+
+open ( 'OUT1' , '<test_out.txt' ) or die $!;
+
+=> $! is a special variable in Perl. It would be an error
+message, from the system ( system generated error )
+
+OR [ with custom error/msg ]
+
+open ( 'OUT1' , '<test_out.txt' ) or die "Error: $!";
+
+-----------------------------------------
+STDIN:
+``````
+#!/usr/bin/perl
+use strict;
+
+open(DATA, "<secret") or die "Can't open data: $!";
+chomp(my $lines = <DATA>);   
+print "Out: $lines\n";
+close(DATA);
+
+
+
+
+
+
+
+
+We can use ARRAY to store complete file :
+``````````````````````````````````````````
+#!/usr/bin/perl -w
+use strict;
+
+open(DATA,"<secret") or die "Can't open data: $!";
+chomp(my @lines = <DATA>);      #it will store complete data from file
+print "Out: @lines\n";
+close(DATA);
+
+
+
+
+
+
+STDIN with IF:
+``````````````
+
+#!/usr/bin/perl -w
+use strict;
+if (-e "/etc/passwd"){
+        open ('data', "</etc/passwd");
+        chomp(my @arr1 = <data>);
+    	print $arr1[0];
+        close ('data');
+} else {
+        print "Error";
+        exit 128;
+}
+
+
+STDOUT STDIN:
+``````````````
+#!/usr/bin/perl -w
+use strict;
+
+open (data1,"<secret") or die $!;		# COPY THE FILE
+open (data2,">>file.txt") or die $!;		# PASTE THE CONTENT
+
+chomp(my @f1 = <data1>);
+for (@f1){
+    print data2 $_;
+}
+close(data1);
+close(data2);
+
+
+
+
+
+
+
+Q. Write a script to read a file and count the number of lines containing or not containing certain words.
+
+- Create a file, write some content and close the file
+- Read the word to search (word1)
+- Open the file in read mode
+- Read a lines from the file
+- If word1 is present in the line, increament a counter
+- Repeat step 4 & 5 till the content of file is exhausted
+- Print the counter value
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+
+Functions: [Subroutines]
+``````````````````````````
+Functions are defined as follows:
+
+sub funName{
+# do something
+}
+
+------
+and invoked within a script by
+------
+&funName();
+
+or
+
+funName();
+
+OR
+
+funName;
+--------------------
+
+
+
+Another example:
+`````````````````
+sub myfunc{
+print “Hey, I’m in a function!\n”;
+}
+…
+myfunc();
+
+[+] function already declared, ( ) are optional (ie, can just say myfunc; )
+
+
+_______________________________________
+eg:
+```
+#!/usr/bin/perl -w
+use strict;
+sub print_sum{
+	my ($a,$b)= (2,3);
+	my $sum;
+	$sum=$a+$b;
+	print "The sum is $sum\n";
+}
+
+print_sum()
+
+parameters passed to a function arrive in the array @_ & Return values
+`````````````````````````````````````````````````````````````
+#!/usr/bin/perl -w
+use strict;
+sub sum{
+	my ($a,$b)=@_;
+	my $sum;
+	$sum=$a+$b;
+	return $sum;
+}
+my $s=sum(2,3);
+print "Out: $s\n";
+
+
+so, in the invocation $a = $_[0] = 2 & $b = $_[1] = 3 
+------------------------------------------------
+Restrict one argument in subroutine
+````````````````````````````````````
+#!/usr/bin/perl -w
+use strict;
+sub lol($){
+        print "My name is @_\n";
+
+}
+lol("Dheeraj");
+
+Restrict one arg and second arg as optional:
+````````````````````````````````````````````
+#!/usr/bin/perl -w
+use strict;
+sub lol($;$){
+        print "My name is @_\n";
+
+}
+lol("Dheeraj","lol");
+_________________________________________________________________________________________
+
+_________________________________________________________________________________________
+TCP(flags) UDP HTTP Methods/Status COde etc... To Socket programming etc...
+
+----------------------------------------------------NOT NOW:::: Later--
+Perl Lib & Module:
+``````````````````
+Module: File or a bundle of files that helps accomplish tasks
+
+Perl Socket:
+````````````[Send packet]
+#!/usr/bin/perl -w
+use strict;
+use IO::Socket;
+my $Socket = IO::Socket::INET->new
+(
+        proto => "tcp",
+        PeerAddr => "127.0.0.1",
+        PeerPort => 9090
+);
+$Socket->autoflush(1);
+print $Socket "LOL";
+close $Socket;
+__________________
+
+
+
+_________________
+Perl Socket:
+````````````[Recv packet]
+#!/usr/bin/perl -w
+use strict;
+use IO::Socket;
+my $Socket = IO::Socket::INET->new
+(
+        proto => "tcp",
+        PeerAddr => "127.0.0.1",
+        PeerPort => 9090
+);
+$Socket->autoflush(1);
+while (<$Socket>){
+        print "msg: $_\n";
+}
+close $Socket;
+___________________________________
+
+Mail Client PERL:
+``````````````````
+# apt install sendmail -y
+----------
+#!/usr/bin/perl -w
+use strict;
+
+my $to = 'user@gmail.com';
+my $from = 'admin@yahoo.com';
+my $sub = 'LOL';
+my $msg = 'Ulalalal';
+
+open(MAIL, "|/usr/sbin/sendmail -t");
+print MAIL "To: $to\n";
+print MAIL "From: $from\n";
+print MAIL "Subject: $sub\n";
+print MAIL $msg;
+
+close(MAIL);
+
+print "Sent\n";
+
+_________________________________________________________________________________________________________________
+Package: Another way to divide up a program, ensures that one section of program does not affect another section
+
+To use Perl as a web client, you can utilize modules like LWP::UserAgent--->
+`````````````````````````````````````````````````````````````````````````
+#!/usr/bin/perl
+use strict;
+use warnings;
+use LWP::UserAgent;
+
+# Create a user agent object
+my $ua = LWP::UserAgent->new;
+
+# Specify the URL to fetch
+my $url = 'http://example.com';
+
+# Make the request
+my $response = $ua->get($url);
+
+# Check for success
+if ($response->is_success) {
+    # Print the content of the response
+    print $response->decoded_content;
+} else {
+    # Print the error message
+    print "HTTP GET error: ", $response->status_line, "\n";
+}
+
+_____________________________________________________________________________________________________________________
+
+
+Multidimentional Array:
+`````````````````````````
+#!/usr/bin/perl -w
+use strict;
+
+my @array = (
+        ["one","ONE","One","OnE"],              #<= This is array[0]
+        ["two","TWO","Two","TwO","twO"],                #<= This is array[1]
+        ["three","THREE","Three","ThreE","threE","ThrEe"]       #<= This is array[2]
+);
+
+print "$array[0][0]\n";  ## Out: one
+print "$array[0][1]\n";  ## Out: ONE
+print "$array[0][2]\n";  ## Out: One
+
+print "$array[1][0]\n";  ## Out: two
+print "$array[1][1]\n";  ## Out: TWO
+print "$array[1][2]\n";  ## Out: Two
+
+print "$array[2][0]\n";  ## Out: three
+print "$array[2][1]\n";  ## Out: THREE
+print "$array[2][2]\n";  ## Out: Three
+print "Count total array as elements of \$#array = $#array\n";
+print "Count total elements of \$#array[0] = $#{$array[0]}\n";
+print "Count total elements of \$#array[1] = $#{$array[1]}\n";
+print "Count total elements of \$#array[2] = $#{$array[2]}\n";
+
+
+TO PRINT ENTIRE MULTIDIMENTIONAL ARRAY: 
+```````````````````````````````````````
+You can use Data::Dump: [package]
+``````````````````````````````````
+#!/usr/bin/perl -w
+use strict;
+use Data::Dump ("dump");
+my @array = (
+        ["one","ONE","One","OnE"],              #<= This is array[0]
+        ["two","TWO","Two","TwO","twO"],                #<= This is array[1]
+        ["three","THREE","Three","ThreE","threE","ThrEe"]       #<= This is array[2]
+);
+
+dump(@array);
+dump(@array[0]);
+dump(@array[1]);
+
+_______________________________________________________________________________________________
+Create Perl Package:
+````````````````````
+
+# DECLARE PERL PACKAGE
+package perl_package;
+
+BEGIN {
+# INITIALIZATION CODE
+}
+
+# DEFINE PERL PACKAGE
+sub package_subroutine {
+print "Hello from Perl Package.\n";
+}
+# TO INDICATE THAT PACKAGE LOADS OK
+return 1;
+
+END {
+# CLEAN UP CODE
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+___________________________________________________________________________________________________________________
+
+Packages in perl
+`````````````````
+A package consists of all the variable names, subroutine names, as well as any other declarations currently in use.
+
+=> A package provides a namespace
+=> each namespace is separate from any other
+=> There is a default package and it is called main.
+
+Ex:
+
+#!/usr/bin/perl -w
+use strict;
+package Foo;
+my $x=10;
+print "$x";
+
+# perl script.pl
+10
+
+
+Well, let's switch namespaces and see what happens:
+`````````````````````````````````````````````````````
+#!/usr/bin/perl -w
+use strict;
+
+package Foo;
+my $x=10;
+
+package Bar;
+print "$x";
+
+# perl script.pl
+NO OUTPUT
+
+
+NOTE: we defined a variable called $x in the package Foo but in the package Bar there is no such variable defined.
+---------------------------------------------
+
+
+
+One can access the value of a variable defined in one package while in another:
+
+#!/usr/bin/perl -w
+use strict;
+ 
+package Foo;
+my $x=10;
+
+package Bar;
+print "$Foo::x";
+
+# perl script.pl
+10
+
+NOTE: we have defined a variable $x in the package Foo but after switching to the package Bar we can still access the value of this variable by fully qualifying the variable with the package
+that it was defined in.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+_____________________________________________________________________________________________________
+#!/usr/bin/perl
+#
+use Mysql;
+
+$mysql_host = "perl_box";
+$mysql_database = "perl_connect";
+$mysql_user = "perl_programmer";
+$mysql_password = "perl";
+
+$perl_mysql_connect = Mysql->connect($mysql_host, $mysql_database, $mysql_user, $mysql_password);
+
+if ($perl_mysql_connect) {
+       print "Perl have created connection to MySQL database!\n"
+} else {
+       print "Perl could not create connection to MySQL database!\n"
+}
+
+_______________________________________________________________________
+Database Connectivity:
+``````````````````````
+Basic installation & usage of MYSQL.
+
+=> Use module "DBI"
+
+use DBI;
+
+=> then we will call a function
+
+DBI->connect('DBI:dbms:db_name:db_host','db_username','db_password') or die "Can't connect to database: $DBI::errstr\n";
+;
+
+dbms: mysql, mssql, postgresql etc...
+db_name: Database name
+db_host: DB server IP
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+#!/usr/bin/perl
+use DBI;
+
+$myconn = DBI->connect('DBI:mysql:dvwa:localhost','root','redhat') or die "Can't connect to database: $DBI::errstr\n";
+$query = $myconn->prepare('SELECT VERSION();') or die "Can't prepare $query: $myconn->errstr\n";;
+$result = $query->execute() or die "Unable to execute sql: $query->errstr"; ;
+my $data = $query->fetch();
+print @$data;
+$query->finish();
+
+
+
+
+
+
+
+
+
+
+
+
+
+https://pauljerimy.com/security-certification-roadmap/
+
+
+
+
+
+
+
+
+
+
+
