@@ -1,0 +1,25 @@
+package Day1;
+import java.util.Scanner;
+
+public class Palindrome2_2 {
+
+	public static void main(String[] args) {
+		int num, first, second, third, temp;
+		
+		Scanner sc=new Scanner(System.in);
+        System.out.println("Enter a number with three digits: ");
+        num=sc.nextInt();
+        
+        first=num%10;
+        temp=num/10;
+        second=temp%10;
+        third=temp/10;
+        
+        if (first==third)
+            System.out.println("Number "+num+" is a Palindrome");
+        else
+        	System.out.println("Number "+num+" is not a Palindrome");
+        
+	}
+
+}

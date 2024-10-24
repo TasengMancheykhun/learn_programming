@@ -1,0 +1,19 @@
+package Day1;
+
+import java.util.Scanner;
+
+public class ternaryOprator {
+
+	public static void main(String[] args) {
+	
+		int a,b,c;
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter First No : \n");
+		a=sc.nextInt();		
+		System.out.println("Enter Second No : \n");
+		b= sc.nextInt();
+		c = a>b?a:b;
+		System.out.println("Maximum no : "+c);
+	}
+
+}

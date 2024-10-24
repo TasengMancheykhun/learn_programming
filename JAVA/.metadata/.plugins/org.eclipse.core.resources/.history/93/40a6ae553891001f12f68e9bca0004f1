@@ -1,0 +1,27 @@
+package Day1;
+import java.util.Scanner;
+
+public class Evenodd {
+
+	public static void main(String[] args) {
+        int num, rem, sum;
+        
+        Scanner sc=new Scanner(System.in);
+        System.out.println("Enter a number: ");
+        num = sc.nextInt();
+        
+        while(num>0)
+        {
+        	rem=num%10;
+        	num=num/10;
+        	sum=(sum*10)+rem;
+        }
+        
+        if (first%2==0)
+        	count+=1;
+        else if (second%2==0)
+        	count+=1;
+        
+	}
+
+}

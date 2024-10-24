@@ -1,0 +1,19 @@
+package Day1;
+import java.util.Scanner;
+
+public class FourFunCal {
+
+	public static void main(String[] args) {
+		int a,b,sum,sub,mul,div;
+		Scanner sc = new scanner (System.in);
+		
+		System.out.println("Enter First No :");
+		a=sc.nextInt();		
+		System.out.println("Enter First No :");
+		b= sc.nextInt();
+		
+		System.out.println("Addition of"+(a+b));
+
+	}
+
+}

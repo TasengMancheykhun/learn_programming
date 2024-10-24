@@ -1,0 +1,27 @@
+package Day1;
+import java.util.Scanner;
+
+public class Palindrome2_2 {
+
+	public static void main(String[] args) {
+		int num=0, rem=0, sum=0;
+		
+		Scanner sc=new Scanner(System.in);
+        System.out.println("Enter a number: ");
+        num=sc.nextInt();
+        
+        while(num>0)
+        {
+        	rem=num%10;
+        	num=num/10;
+        	sum=(sum*10)+rem;
+        }
+        
+        if (num==sum)
+            System.out.println("Number "+num+" is a Palindrome");
+        else
+        	System.out.println("Number "+num+" is not a Palindrome");
+        
+	}
+
+}

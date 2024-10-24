@@ -1,0 +1,26 @@
+package Day2;
+
+import java.util.Scanner;
+
+public class reverseArray {
+
+	public static void main(String[] args) {
+		int a[] = new int [5];
+		int mid;
+		Scanner sc =new Scanner(System.in);
+		for (int i=0 ; i<5;i++ ) {
+			System.out.print("Enter the element : ");
+			a[i]=sc.nextInt();
+		}
+		mid=5/2;
+		for ( int i=0,j=5;i<mid && j>mid;i++,j--) {
+			a[i]=a[j];
+		}
+		
+		for ( int i :a) {
+			System.out.print(i);
+		}
+		
+	}
+
+}

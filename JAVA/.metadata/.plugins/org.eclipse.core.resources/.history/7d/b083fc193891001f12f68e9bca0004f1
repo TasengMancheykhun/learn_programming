@@ -1,0 +1,23 @@
+package Day1;
+import java.util.Scanner;
+public class Evenodd {
+
+	public static void main(String[] args) {
+//        int num,temp,first,second,third,count;
+//        Scanner sc=new Scanner(System.in);
+//        System.out.println("Enter a 3 digit number: ");
+//        num = sc.nextInt();
+//        
+//        first=num%10;
+//        temp=num/10;
+//        second=temp%10;
+//        third=temp/10;
+//        
+//        if (first%2==0)
+//        	count+=1;
+//        else if (second%2==0)
+//        	count+=1;
+//        
+//	}
+
+}
