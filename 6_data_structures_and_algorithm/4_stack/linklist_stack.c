@@ -22,17 +22,13 @@ void push()
 
     if (top == NULL)     // if linklist is empty
     {
-        top = temp;
-        
-        top -> next = NULL;
-        
+        temp -> next = NULL;
+        top = temp;                
     }
-
     else 
     {
-        top -> next = temp;
-        top = temp;
-        
+        temp -> next = top;
+        top = temp;        
     }
 }
 
@@ -69,7 +65,7 @@ int main()
    int choice, cont=1;
 
    do {
-        printf("\n1. insert \n 2. delete \n 3. display \n");
+        printf("\n 1. insert \n 2. delete \n 3. display \n");
         printf("Enter the choice\n");
         scanf("%d",&choice);
 
@@ -91,7 +87,7 @@ int main()
                 printf("Invalid choice\n");
                 break;
         }
-        printf("Do you want to continue? \n");
+        printf("Do you want to continue? Enter 1 for yes\n");
         scanf("%d",&cont);
     }while(cont==1);
 
